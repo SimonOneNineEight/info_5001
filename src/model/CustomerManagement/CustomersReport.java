@@ -13,11 +13,29 @@ import java.util.ArrayList;
  */
 public class CustomersReport {
     ArrayList<CustomerSummary> customerlist;
-    
-    public CustomersReport(){
-        
+
+    public CustomersReport() {
+        this.customerlist = new ArrayList<>();
     }
-    public void addCustomerSummary(CustomerSummary cs){
-        
+
+    public void addCustomerSummary(CustomerSummary cs) {
+        this.customerlist.add(cs);
     }
+
+    public ArrayList<CustomerSummary> getCustomerSummaries() {
+        return this.customerlist;
+    }
+
+    public CustomerSummary getSpentMostCustomer() {
+        CustomerSummary max = this.customerlist.get(0);
+
+        for (CustomerSummary summary : this.customerlist) {
+            if (summary.getCustomerTotal() > max.getCustomerTotal()) {
+                max = summary;
+            }
+        }
+
+        return max;
+    }
+
 }

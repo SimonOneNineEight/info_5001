@@ -23,7 +23,7 @@ public class CustomerDirectory {
     public CustomerDirectory(Business d) {
 
         business = d;
-        customerlist = new ArrayList();
+        customerlist = new ArrayList<>();
 
     }
 
@@ -42,28 +42,29 @@ public class CustomerDirectory {
                 return sp;
             }
         }
-            return null; //not found after going through the whole list
-         }
-        public CustomersReport generatCustomerPerformanceReport(){
+        return null; // not found after going through the whole list
+    }
+
+    public CustomersReport generateCustomerPerformanceReport() {
         CustomersReport customersreport = new CustomersReport();
-    
-        for(CustomerProfile cp: customerlist){
-            
+
+        for (CustomerProfile cp : customerlist) {
+
             CustomerSummary cs = new CustomerSummary(cp);
             customersreport.addCustomerSummary(cs);
         }
-        return customersreport; 
+        return customersreport;
     }
 
-    public CustomerProfile pickRandomCustomer(){
-        if (customerlist.size() == 0) return null;
+    public CustomerProfile pickRandomCustomer() {
+        if (customerlist.size() == 0)
+            return null;
         Random r = new Random();
         int randomIndex = r.nextInt(customerlist.size());
         return customerlist.get(randomIndex);
     }
 
-
-    public void printShortInfo(){
+    public void printShortInfo() {
         System.out.println("Checking what's inside the Customer directory.");
         System.out.println("There are " + customerlist.size() + " customers.");
     }

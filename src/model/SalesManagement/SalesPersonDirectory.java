@@ -22,7 +22,7 @@ public class SalesPersonDirectory {
     public SalesPersonDirectory(Business d) {
 
         business = d;
-        salespersonlist = new ArrayList();
+        salespersonlist = new ArrayList<>();
 
     }
 
@@ -41,7 +41,7 @@ public class SalesPersonDirectory {
                 return sp;
             }
         }
-            return null; //not found after going through the whole list
-         }
+        return null; // not found after going through the whole list
+    }
 
 }

@@ -5,6 +5,8 @@
  */
 package model.CustomerManagement;
 
+import java.util.ArrayList;
+
 import model.OrderManagement.Order;
 
 /**
@@ -12,11 +14,26 @@ import model.OrderManagement.Order;
  * @author kal bugrara
  */
 public class CustomerSummary {
-    Order subjectorder;
-    int ordertotal;
-    public CustomerSummary(CustomerProfile cp){
-        
+    private CustomerProfile customer;
+    private ArrayList<Order> subjectOrders;
+    private int customerTotal;
+
+    public CustomerSummary(CustomerProfile cp) {
+        this.customer = cp;
+        this.subjectOrders = cp.getOrders();
     }
-    
-    
+
+    public void addOrder(Order order) {
+        this.subjectOrders.add(order);
+        this.customerTotal += order.getOrderTotal();
+    }
+
+    public int getCustomerTotal() {
+        return this.customerTotal;
+    }
+
+    public CustomerProfile getCustomer() {
+        return this.customer;
+    }
+
 }

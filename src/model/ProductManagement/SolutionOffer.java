@@ -15,19 +15,21 @@ import model.MarketModel.MarketChannelAssignment;
  */
 public class SolutionOffer {
     ArrayList<Product> products;
-    int price;//floor, ceiling, and target ideas
+    int price;// floor, ceiling, and target ideas
     MarketChannelAssignment marketchannelcomb;
-    public SolutionOffer(MarketChannelAssignment m){
+
+    public SolutionOffer(MarketChannelAssignment m) {
         marketchannelcomb = m;
-        products = new ArrayList();
-    } 
-    
-    public void addProduct(Product p){
+        products = new ArrayList<>();
+    }
+
+    public void addProduct(Product p) {
         products.add(p);
     }
-    public void setPrice(int p){
+
+    public void setPrice(int p) {
         price = p;
-        
+
     }
-    
+
 }

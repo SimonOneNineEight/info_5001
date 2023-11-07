@@ -21,7 +21,7 @@ public class EmployeeDirectory {
     public EmployeeDirectory(Business d) {
 
         business = d;
-        employeelist = new ArrayList();
+        employeelist = new ArrayList<>();
 
     }
 
@@ -40,7 +40,7 @@ public class EmployeeDirectory {
                 return sp;
             }
         }
-            return null; //not found after going through the whole list
-         }
-    
+        return null; // not found after going through the whole list
+    }
+
 }

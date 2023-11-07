@@ -12,12 +12,12 @@ import java.util.ArrayList;
  * @author kal bugrara
  */
 public class PersonDirectory {
-    
-      ArrayList<Person> personlist ;
-    
-      public PersonDirectory (){
-          
-       personlist = new ArrayList();
+
+    ArrayList<Person> personlist;
+
+    public PersonDirectory() {
+
+        personlist = new ArrayList<>();
 
     }
 
@@ -36,7 +36,7 @@ public class PersonDirectory {
                 return p;
             }
         }
-            return null; //not found after going through the whole list
-         }
-    
+        return null; // not found after going through the whole list
+    }
+
 }
