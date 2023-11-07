@@ -246,7 +246,8 @@ public class ConfigureABusiness {
                     int randomPrice = getRandom(randomProduct.getFloorPrice(), randomProduct.getCeilingPrice());
                     int randomQuantity = getRandom(1, productMaxQuantity);
 
-                    randomOrder.newOrderItem(randomProduct, randomPrice, randomQuantity);
+                    OrderItem oi = randomOrder.newOrderItem(randomProduct, randomPrice, randomQuantity);
+                    randomProduct.addOrderItem(oi);
                 }
             }
         }

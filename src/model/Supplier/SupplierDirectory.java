@@ -65,6 +65,31 @@ public class SupplierDirectory {
         return suppliersWithProduct.get(randomIndex);
     }
 
+    public Supplier getBestSalesSupplier() {
+        Supplier best = this.suppliers.get(0);
+
+        for (Supplier supplier : this.suppliers) {
+            if (supplier.getTotalSalesIncome() > best.getTotalSalesIncome()) {
+                best = supplier;
+            }
+        }
+
+        return best;
+    }
+
+    public Supplier getWorstSalesSupplier() {
+        Supplier worst = this.suppliers.get(0);
+
+        for (Supplier supplier : this.suppliers) {
+            if (worst.getTotalSalesIncome() == 0 || (supplier.getTotalSalesIncome() > 0
+                    && supplier.getTotalSalesIncome() < worst.getTotalSalesIncome())) {
+                worst = supplier;
+            }
+        }
+
+        return worst;
+    }
+
     public void printShortInfo() {
         System.out.println("Checking what's inside the supplier directory.");
         System.out.println("There are " + suppliers.size() + " suppliers.");

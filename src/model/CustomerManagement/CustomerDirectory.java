@@ -64,6 +64,18 @@ public class CustomerDirectory {
         return customerlist.get(randomIndex);
     }
 
+    public CustomerProfile getSpendMosCustomerProfile() {
+        CustomerProfile max = this.customerlist.get(0);
+
+        for (CustomerProfile cp : this.customerlist) {
+            if (cp.getTotalPrice() > max.getTotalPrice()) {
+                max = cp;
+            }
+        }
+
+        return max;
+    }
+
     public void printShortInfo() {
         System.out.println("Checking what's inside the Customer directory.");
         System.out.println("There are " + customerlist.size() + " customers.");

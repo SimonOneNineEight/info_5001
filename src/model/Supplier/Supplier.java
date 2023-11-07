@@ -52,8 +52,12 @@ public class Supplier {
         productcatalog.printShortInfo();
     }
 
+    public ArrayList<Product> getProductList() {
+        return this.productcatalog.getProductList();
+    }
+
     public Product getMostExpensiveProduct() {
-        ArrayList<Product> productList = this.productcatalog.getProductList();
+        ArrayList<Product> productList = this.getProductList();
         Product max = productList.get(0);
 
         for (Product product : productList) {
@@ -63,6 +67,17 @@ public class Supplier {
         }
 
         return max;
+    }
+
+    public int getTotalSalesIncome() {
+        ArrayList<Product> productList = this.getProductList();
+        int sum = 0;
+
+        for (Product product : productList) {
+            sum += product.getSalesVolume();
+        }
+
+        return sum;
     }
 
     // add supplier product ..

@@ -5,20 +5,12 @@
  */
 package ui;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import model.Business.Business;
 import model.Business.ConfigureABusiness;
 import model.CustomerManagement.CustomerDirectory;
 import model.CustomerManagement.CustomerProfile;
-import model.CustomerManagement.CustomerSummary;
-import model.CustomerManagement.CustomersReport;
-import model.ProductManagement.ProductCatalog;
-import model.ProductManagement.ProductsReport;
 import model.Supplier.Supplier;
 import model.Supplier.SupplierDirectory;
-import model.OrderManagement.Order;
 
 /**
  *
@@ -65,13 +57,21 @@ public class RangePricingApplication {
         System.out.println("------------------------------------------------------------");
         // - Find a customer who spend most money with us.
         System.out.println("Find a customer who spend most money with us \n");
-        CustomersReport report = cd.generateCustomerPerformanceReport();
-        CustomerSummary max = report.getSpentMostCustomer();
-        CustomerProfile customer = max.getCustomer();
+        CustomerProfile customer = cd.getSpendMosCustomerProfile();
         System.out.println("The customer who spend most money with us is: " + customer.getCustomerId()
-                + ", the total spending is: " + max.getCustomerTotal());
+                + ", the total spending is: " + customer.getTotalPrice());
+        System.out.println("------------------------------------------------------------");
         // - Find a Supplier with most sales.
+        System.out.println("Find a Supplier with most sales: ");
+        Supplier bestSupplier = sd.getBestSalesSupplier();
+        System.out.println("The supplier that has most sales is: " + bestSupplier.getName()
+                + ", and the total sales is: " + bestSupplier.getTotalSalesIncome());
+        System.out.println("------------------------------------------------------------");
         // - Find a Supplier with least sales (do not include Supplier with zero sales).
+        System.out.println("Find a Supplier with least sales (do not include Supplier with zero sales): ");
+        Supplier worstSupplier = sd.getWorstSalesSupplier();
+        System.out.println("The supplier that has least sales is: " + worstSupplier.getName()
+                + ", and the total sales is: " + worstSupplier.getTotalSalesIncome());
     }
 
 }
